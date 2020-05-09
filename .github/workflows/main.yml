@@ -32,11 +32,12 @@ jobs:
         uses: actions/setup-dotnet@v1
         with:
           dotnet-version: ${{ env.DOTNET_VERSION }} 
+          
       # SCA  
       - name: Snyk
-        uses: snyk/actions@0.1.1
+        uses: snyk/actions/dotnet@master
         env:
-        SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+            SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
       
       # Run dotnet build and publish
       - name: dotnet build and publish
